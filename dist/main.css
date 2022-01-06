@@ -76,7 +76,7 @@
     transform: translate(-50%, -50%);
     background-color: rgba(244, 244, 244, 0.916);
     padding: 1rem 1.5rem;
-    width: 40rem;
+    width: 35rem;
     border-radius: 0.5rem;
 }
 
@@ -231,9 +231,10 @@ div.controls {
   z-index: 1;
   position: absolute;
   /* right: 35%; */
-   left: 47%;
+   left: 43%;
   width: 200px;
   height: 30px;
+  margin-top: 28px
 }  
 #question {
     display: flex;
@@ -270,7 +271,7 @@ div.controls {
     color: rgb(248, 245, 245);
     font-family: "Poppins";
     background-color: black;
-    width: fit-content;
+    width: 60%;
 }
 
 #next-btn {
@@ -280,7 +281,7 @@ div.controls {
     color: white;
     font-family: "Poppins";
     background-color: black;
-    width: fit-content;
+    width: 60%;
 }
 
 .hide {
