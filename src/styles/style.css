@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modal-content {
+    font-family: "Poppins";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(244, 244, 244, 0.916);
+    padding: 1rem 1.5rem;
+    width: 24rem;
+    border-radius: 0.5rem;
+}
+
+.close-button {
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
+}
+
+.close-button:hover {
+    background-color: darkgray;
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+path {
+    stroke: rgb(192, 191, 191);
+    fill:rgb(79, 82, 82) ;
+    /* fill:rgb(79, 82, 82) ; */
+    /* color: aqua; */
+    transition: fill .4s ease;
+     cursor: pointer;
+   
+}
+
+path:hover {
+    fill: rgb(119, 119, 119) ;
+    /* cursor: pointer; */
+    /* color: rgb(15, 155, 10) */
+}
+
+/* svg {
+  position:absolute;
+  top: 300px;
+} */
+
+body {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 25px;
+    width: 100%;
+    height: 100%;
+    background-color: #2783cd;
+}
+
+#details-box {
+    display: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 24px;
+    position: fixed;
+    color: white;
+    font-family: "Poppins";
+    background-color: black;
+    width: fit-content;
+    transform: translateX(-50%);
+    transition: opacity 0.4s ease;
+    z-index: 1;
+    /* cursor: pointer; */
+}
+#logo {
+  color: white;
+    font-family: "Poppins";
+    background-color: black;
+    display: flex;  
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(11, 9, 20);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: rgb(203, 206, 219);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: rgb(79, 82, 82)
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+
+.controls {
+  display: flex;
+  justify-content: flex-start;
+}
+#question {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: rgb(7, 6, 6);
+    /* color: rgb(161, 0, 0); */
+    font-family: "Poppins";
+}
+
+#start-btn {
+    
+    padding: 0.5rem;
+    border-radius: 8px;
+    font-size: 16px;
+    color: white;
+    font-family: "Poppins";
+    background-color: black;
+    width: fit-content;
+}
+#next-btn {
+    padding: 0.5rem;
+    border-radius: 8px;
+    font-size: 16px;
+    color: white;
+    font-family: "Poppins";
+    background-color: black;
+    width: fit-content;
+}
+
+.hide {
+    display: none;
+}
+
+
+#timer {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: rgb(7, 6, 6);
+    /* color: rgb(161, 0, 0); */
+    font-family: "Poppins";
+}
+
+.scoreBoard {
+  
+  text-align: center;
+  left: 0;
+  right: 0;
+  width: 100px;
+
+   padding-top: 30px;
+ }
+
+.mainScore {
+    border-radius: 8px;
+    display: flex ;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(7, 6, 6);
+    /* color: rgb(161, 0, 0); */
+    font-family: "Poppins";
+     border: solid rgb(78, 78, 78);;
+}
