@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 .modal {
+    z-index: 4;
     position: fixed;
     left: 0;
     top: 0;
@@ -46,6 +47,61 @@
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 
+/* modal 2 */
+
+.modal2 {
+    z-index: 4;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modal-content2 {
+    font-family: "Poppins";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(244, 244, 244, 0.916);
+    padding: 1rem 1.5rem;
+    width: 40rem;
+    border-radius: 0.5rem;
+}
+
+.close-button2 {
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
+}
+
+.close-button2:hover {
+    background-color: darkgray;
+}
+
+.show-modal2 {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+
+
+
+
+
+
 path {
     stroke: rgb(192, 191, 191);
     fill:rgb(79, 82, 82) ;
@@ -71,7 +127,9 @@ body {
     display: block;
     position: absolute;
     top: 0px;
-    left: 25px;
+    left: 25px; 
+    right: 25px; 
+    margin-right: 30px;
     width: 100%;
     height: 100%;
     /* background-color: #2783cd; */
@@ -164,10 +222,14 @@ input:checked + .slider:before {
 
 
 
-.controls {
-  display: flex;
-  justify-content: flex-start;
-}
+div.controls {
+  z-index: 1;
+  position: absolute;
+  /* right: 35%; */
+   left: 47%;
+  width: 200px;
+  height: 30px;
+}  
 #question {
     display: flex;
     justify-content: center;
@@ -178,16 +240,34 @@ input:checked + .slider:before {
     font-family: "Poppins";
 }
 
-#start-btn {
-    
+#info-btn {
+    /* display: flex;
+    justify-content: end; */
+     position: absolute;
+  right: 10%;
+  width: 200px;
+  /* height: 30px; */
     padding: 0.5rem;
     border-radius: 8px;
     font-size: 16px;
-    color: white;
+    color: rgb(248, 245, 245);
     font-family: "Poppins";
     background-color: black;
     width: fit-content;
 }
+
+#start-btn {
+    /* display: flex;
+    justify-content: end; */
+    padding: 0.5rem;
+    border-radius: 8px;
+    font-size: 16px;
+    color: rgb(248, 245, 245);
+    font-family: "Poppins";
+    background-color: black;
+    width: fit-content;
+}
+
 #next-btn {
     padding: 0.5rem;
     border-radius: 8px;
@@ -215,6 +295,7 @@ input:checked + .slider:before {
 
 .scoreBoard {
   
+  
   text-align: center;
   left: 0;
   right: 0;
@@ -223,11 +304,15 @@ input:checked + .slider:before {
    padding-top: 30px;
  }
 
+ div.scoreBoard {
+    
+ }
+
 .mainScore {
     border-radius: 8px;
     display: flex ;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     font-weight: bold;
     font-size: 18px;
     color: rgb(7, 6, 6);

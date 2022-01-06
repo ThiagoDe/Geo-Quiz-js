@@ -173,9 +173,11 @@ window.addEventListener('DOMContentLoaded', (event) =>{
             
             
             function mapWithOnlyGreens() {
+                 console.log(listOfWrongGuesses)
                 for (let i = 0; i < listOfWrongGuesses.length; i++) {
                     let stateName = listOfWrongGuesses[i]
-                    document.querySelector(`[data-name='${stateName}']`)
+                    console.log('hello')
+                    document.querySelector(`[data-name='${stateName}']`).style.fill = "rgb(79, 82, 82)"
                 }
             }
             
@@ -184,7 +186,8 @@ window.addEventListener('DOMContentLoaded', (event) =>{
             
             function nextQuestion() {
                 mapWithOnlyGreens()
-                console.log(listOfWrongGuesses)
+                // console.log('listOfWrongGuesses')
+
                 let idx = Math.floor(Math.random() * (allStates.length - 1))
                 let state = allStates[idx].dataset.name
                 // console.log(usMap)
@@ -262,7 +265,23 @@ window.addEventListener('DOMContentLoaded', (event) =>{
             modal.classList.toggle("show-modal");
         }
 
-       
+        const info = document.getElementById('info')
+        const info2 = document.getElementById('info2')
+            const modal2 = document.querySelector(".modal2");
+            const closeButton2 = document.querySelector(".close-button2");
+            closeButton2.addEventListener("click", toggleModal2);
+            // console.log(modal)
+         
+            const infoButton = document.getElementById('info-btn');
+            infoButton.addEventListener('click', toggleModal2)
+        function toggleModal2() {
+            console.log('hi')
+            // var t = document.createTextNode('Study these states: ' + [...new Set(listOfWrongGuesses)].join(', ')); 
+            info.innerHTML = ('STUDY MODE: Click on the slider on the top left of your screen to activate the study mode. Hover over each state to visualize its name and memorize it. When done, switch to the game mode' )
+            info2.innerHTML = ('GAME MODE: You will be prompted a state name to find on the map. Click on the map where you believe the state to be located. If your guess is correct the state color will turn green and 1 pt will be counted towards your accurate score. Otherwise, it will turn red and 1 pt will be counted toward your inaccurate score. You have 10 seconds to locate each state and 10 states to locate.' )
+            
+            modal2.classList.toggle("show-modal2");
+        }
         
 
     })
