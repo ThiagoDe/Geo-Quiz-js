@@ -142,6 +142,7 @@ window.addEventListener('DOMContentLoaded', (event) =>{
             function startGame() {
                 document.getElementById("myList").innerHTML = '' 
                 switchButtons()
+                gameMode = true;
                 gameRound()
             }
             
@@ -200,7 +201,7 @@ window.addEventListener('DOMContentLoaded', (event) =>{
             
 
         function countdown() {
-            let timeleft = 5;
+            let timeleft = 10;
            const inner = setInterval(function(){
                 if (timeleft >= 0)
 
@@ -236,11 +237,13 @@ window.addEventListener('DOMContentLoaded', (event) =>{
                         incrementScore();
                         nextQuestion();
                     } else {
+                        if (gameMode) {
                         incrementWrong();
                         console.log(clickedState)
                         listOfWrongGuesses.push(clickedState)
                         console.log(listOfWrongGuesses)
                         document.getElementById(stateId).style.fill = 'rgb(161, 0, 0)';
+                        }
                     }
             })
         }

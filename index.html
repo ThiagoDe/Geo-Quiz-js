@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive US Map</title>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+           > 
         <link rel="stylesheet" href="./dist/main.css" />
         <script src="./dist/main.js"></script>
 
@@ -16,10 +19,20 @@
 <body>
     <h1 id="logo">Geo-Quiz</h1>
     <!-- Rounded switch -->
-    <label class="switch">
+    <!-- <label class="switch"> 
         <input type="checkbox" id="checkbox">
         <span class="slider round"></span>
+    </label> -->
+
+    <!-- btn test -->
+    <label class="toggle">
+        <input type="checkbox" id="checkbox">
+        <span class="slider2"></span>
+    
+        <!-- label element  -->
+        <span class="labels" data-on="STUDY" data-off="GAME"></span>
     </label>
+
     
     <div id="question"></div>
     <div id='timer'>LET'S PLAY?</div>
@@ -245,4 +258,31 @@
 
     </script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
+   
+    
+    <!-- <div class="footer-basic">
+        <footer>
+            <div class="social"><a href="#" src=""><i class="icon ion-social-instagram"></i></a><a href="#"><i
+                 class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a
+                    href="#"><i class="icon ion-social-facebook"></i></a></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Geo-Quiz</a></li>
+               
+            </ul>
+            <p class="copyright">Built by Thiago © 2022</p>
+        </footer>
+    </div> -->
+<footer>
+    <div class="social-menu">
+        <h1></h1>
+        <ul>
+            <!-- <li><a href=""><i class="fa fa-facebook"></i></a></li>
+            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+            <li><a href=""><i class="fa fa-instagram"></i></a></li> -->
+            <li><a href="https://github.com/ThiagoDe" target="_blank"><i class="fa fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/thiago-miglioranzi/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+        <p class="copyright">Built by Thiago © 2022</p>
+    </div>
+    </footer>
 </body>
