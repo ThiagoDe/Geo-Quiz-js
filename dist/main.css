@@ -132,7 +132,7 @@ body {
     display: block;
     position: absolute;
     top: 0px;
-    left: 25px; 
+    left: 35px; 
     right: 25px; 
     margin-right: 30px;
     width: 100%;
@@ -231,7 +231,7 @@ div.controls {
   z-index: 1;
   position: absolute;
   /* right: 35%; */
-   left: 43%;
+   left: 45%;
   width: 200px;
   height: 30px;
   margin-top: 28px
