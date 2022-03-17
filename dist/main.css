@@ -259,8 +259,8 @@ div.controls {
 #info-btn {
     /* display: flex;
     justify-content: end; */
-     position: absolute;
-  right: 10%;
+  position: absolute;
+  right: 2%;
   width: 200px;
   /* height: 30px; */
     padding: 0.5rem;
