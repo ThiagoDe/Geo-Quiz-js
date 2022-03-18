@@ -216,6 +216,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
 
         //Right or wrong logic and change color
+        
         for (let i = 0; i < usMap.length; i++) {
 
             usMap[i].addEventListener('click', function(e) {
