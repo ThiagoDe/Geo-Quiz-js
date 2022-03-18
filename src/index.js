@@ -93,6 +93,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 // document.getElementById("timer").innerHTML = 'Play Again?'
                 questionContainer.innerHTML = ''
                 toggleModal()
+                // resetConf()
             }
             
             function switchButtons(){
@@ -113,11 +114,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 listOfWrongGuesses = []
                 rightList = []
                 nextButton.classList.add('hide')
+                // document.getElementById("timer").innerHTML = 'Play Again?'
             
                 //reset toggle modal####
                 console.log(document.getElementById("myList").childNodes[0])
                 console.log(document.getElementById("myList"), 'from reset')
-             roundComplete = false
+            //  roundComplete = false
              guessedRight = 0
              guessedWrong = 0
              numOfChances = 5
@@ -127,9 +129,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
             //starts the game s1
             startButton.addEventListener('click', startGame)
             function startGame() {
+                // resetConf()
                 document.getElementById("myList").innerHTML = '' 
                 switchButtons()
-                // roundComplete = false
+                roundComplete = false
                 gameMode = true;
                 gameRound()
             }
@@ -192,11 +195,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
             function countdown() {
                 let timeleft = 10;
                 const inner = setInterval(function(){
-                    console.log('round complete', roundComplete)
+                    // console.log('round complete', roundComplete)
                 //  if (timeleft >= 0)
                     if (roundComplete) {
                         console.log('round complete', roundComplete)
-                         document.getElementById("timer").innerHTML = 'Play Again?'
+                         document.getElementById("timer").innerHTML = '0'
+                         timeleft = 0
+                         return
                         }
                     let num = document.getElementById("timer").innerHTML = timeleft;
                     if (num === 1) {currentQuestonPush()}
