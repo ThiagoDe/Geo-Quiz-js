@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', (event) =>{
+window.addEventListener('DOMContentLoaded', (event) => {
     const usMap = document.getElementsByTagName('path')
     const nextButton = document.getElementById('next-btn');
     nextButton.classList.add('hide')
@@ -25,11 +25,11 @@ window.addEventListener('DOMContentLoaded', (event) =>{
     var boxInfo = document.getElementById('details-box');
     gameModeBtn.addEventListener('click', function(e) {
         e.stopPropagation();
-        console.log(e)
+        console.log('event game mode',e)
             
 
         if (e.target.checked) {
-            console.log(gameModeBtn.checked)
+            console.log(gameModeBtn.checked, 'target checked')
             for (let i = 0; i < usMap.length; i++) {
                 usMap[i].addEventListener('mouseover', addMouseover);
 
@@ -38,7 +38,7 @@ window.addEventListener('DOMContentLoaded', (event) =>{
                 window.onmousemove = function (e) {
                     var x = e.clientX;
                     var y = e.clientY;
-                    boxInfo.style.top = (y + 10) + 'px';
+                    boxInfo.style.top = (y + 25) + 'px';
                     boxInfo.style.left = (x) + 'px';
                 };
             }
@@ -53,11 +53,12 @@ window.addEventListener('DOMContentLoaded', (event) =>{
         })
             //------------------------------------>>>>>>>>>>>>>>>>>
            var gameMode = false;
+           let roundComplete = false
             // game mode
             
             const startButton = document.getElementById('start-btn');
             const totalScoreHeader = document.getElementById('totalScore');
-            var questionContainer = document.getElementById('question');
+            const questionContainer = document.getElementById('question');
             var allStates = document.getElementsByTagName('path');
             document.getElementById("rightGuesses").innerHTML = '0' + " Right"
             document.getElementById("wrongGuesses").innerHTML = "0"+ " Missed";
@@ -84,9 +85,12 @@ window.addEventListener('DOMContentLoaded', (event) =>{
                 guessedWrong += 1
                 document.getElementById("wrongGuesses").innerHTML = guessedWrong + " Missed";
             }
+
             
             function totalScore() {
                 switchButtonsInit()
+                // roundComplete = true 
+                // document.getElementById("timer").innerHTML = 'Play Again?'
                 questionContainer.innerHTML = ''
                 toggleModal()
             }
@@ -110,9 +114,10 @@ window.addEventListener('DOMContentLoaded', (event) =>{
                 rightList = []
                 nextButton.classList.add('hide')
             
-                //reset togle modal####
+                //reset toggle modal####
                 console.log(document.getElementById("myList").childNodes[0])
-                console.log(document.getElementById("myList"))
+                console.log(document.getElementById("myList"), 'from reset')
+             roundComplete = false
              guessedRight = 0
              guessedWrong = 0
              numOfChances = 5
@@ -124,17 +129,21 @@ window.addEventListener('DOMContentLoaded', (event) =>{
             function startGame() {
                 document.getElementById("myList").innerHTML = '' 
                 switchButtons()
+                // roundComplete = false
                 gameMode = true;
                 gameRound()
             }
             
+            // step 2
             function gameRound() {
+                // roundComplete = true
                 mapWithOnlyGreens()
                 decrementNumOfChances()
                 if (numOfChances > 0) {
                     nextQuestion()
                     countdown()
                 } else {
+                    roundComplete = true
                     totalScore()
                     resetConf()
                 }
@@ -153,10 +162,10 @@ window.addEventListener('DOMContentLoaded', (event) =>{
             
 
             function mapWithOnlyGreens() {
-                 console.log(listOfWrongGuesses)
+                //  console.log(listOfWrongGuesses)
                 for (let i = 0; i < listOfWrongGuesses.length; i++) {
                     let stateName = listOfWrongGuesses[i]
-                    console.log('hello')
+                    // console.log('hello')
                     document.querySelector(`[data-name='${stateName}']`).style.fill = "rgb(79, 82, 82)"
                 }
             }
@@ -169,9 +178,11 @@ window.addEventListener('DOMContentLoaded', (event) =>{
                 let idx = Math.floor(Math.random() * (allStates.length - 1))
                 let state = allStates[idx].dataset.name
                 
-                if (!previousQuestions.includes(state)) {
+                if (!previousQuestions.includes(state) && numOfChances > 0 ) {
                     previousQuestions.push(state);
                     questionContainer.innerHTML = "Where is " + state + "?"
+                } else if (numOfChances === 0){
+                    questionContainer.innerHTML = ''
                 } else {
                     gameRound()
                 }
@@ -181,9 +192,13 @@ window.addEventListener('DOMContentLoaded', (event) =>{
             function countdown() {
                 let timeleft = 10;
                 const inner = setInterval(function(){
+                    console.log('round complete', roundComplete)
                 //  if (timeleft >= 0)
-                   var num = document.getElementById("timer").innerHTML = timeleft;
-
+                    if (roundComplete) {
+                        console.log('round complete', roundComplete)
+                         document.getElementById("timer").innerHTML = 'Play Again?'
+                        }
+                    let num = document.getElementById("timer").innerHTML = timeleft;
                     if (num === 1) {currentQuestonPush()}
                     timeleft -= 1;
                     if (timeleft < 0) {
@@ -211,9 +226,9 @@ window.addEventListener('DOMContentLoaded', (event) =>{
                     } else {
                         if (gameMode) {
                         incrementWrong();
-                        console.log(clickedState)
+                        // console.log(clickedState)
                         listOfWrongGuesses.push(clickedState)
-                        console.log(listOfWrongGuesses)
+                        // console.log(listOfWrongGuesses)
                         document.getElementById(stateId).style.fill = 'rgb(161, 0, 0)';
                         }
                     }
@@ -227,6 +242,7 @@ window.addEventListener('DOMContentLoaded', (event) =>{
             closeButton.addEventListener("click", toggleModal);
             
         function toggleModal() {
+            // roundComplete = true
             var t = document.createTextNode('Study these states: ' + [...new Set(listOfWrongGuesses)].join(', ')); 
             totalScoreHeader.innerHTML = ('Your score: ' + guessedRight + ' / 10' )
             theList.appendChild(t)
